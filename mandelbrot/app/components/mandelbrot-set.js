@@ -8,7 +8,6 @@ export default CanvasElement.extend({
   centerY: 0.0,
   increment: 0.0046875,
 
-
   setCanvas: Ember.on('didInsertElement', function() {
     const canvas = this.get('element');
 
@@ -25,6 +24,8 @@ export default CanvasElement.extend({
     const increment = this.get('increment');
     const newX = centerX + ((event.offsetX - (width/2)) * increment);
     const newY = centerY + ((event.offsetY - (height/2)) * increment);
+
+    Ember.debug('Zooming in');
 
     this.setProperties({
       centerX: newX,
@@ -44,6 +45,7 @@ export default CanvasElement.extend({
     const newX = centerX + ((event.offsetX - (width/2)) * increment);
     const newY = centerY + ((event.offsetY - (height/2)) * increment);
 
+    Ember.debug('Zooming out');
 
     this.setProperties({
       centerX: newX,
